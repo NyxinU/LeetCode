@@ -16,6 +16,8 @@ const product = (array) => {
   for (let index = 0; index < array.length; index++) {
     res.push(left[index] * right[index]);    
   }
+
+  return res;
 };
 
 console.log('====================================');
