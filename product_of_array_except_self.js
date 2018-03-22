@@ -6,11 +6,17 @@ const product = (array) => {
   for (let index = 0; index < array.length - 1; index++) {
     let p = left[index] * array[index];
     left.push(p);
+    console.log('====================================');
+    console.log(left);
+    console.log('====================================');
   }
 
   for (let index = array.length - 1; index > 0; index--) {
     let p = right[0] * array[index];
     right.unshift(p);
+    console.log('====================================');
+    console.log(right);
+    console.log('====================================');
   }
 
   for (let index = 0; index < array.length; index++) {
