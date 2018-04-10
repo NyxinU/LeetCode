@@ -22,13 +22,37 @@ const isBSTUtil = (root, min, max) => {
   return isBSTUtil(root.left, min, root.val - 1) && isBSTUtil(root.right, root.val + 1, max);
 };
 
+var binaryTreePaths = function (root) {
+  var paths = [];
+  if (!root) return [];
+  if (root.left == null && root.right == null) {
+    if (paths.length == 0) return ["" + root.val];
+    else return root.val;
+  }
+  else {
+    if (root.left)
+      binaryTreePaths(root.left).forEach(function (lp) {
+        paths.push(root.val + "->" + lp);
+      });
+    if (root.right)
+      binaryTreePaths(root.right).forEach(function (rp) {
+        paths.push(root.val + "->" + rp);
+      });
+  }
+
+  return paths;
+};
+
+
 
 const one = new Node(1);
 const two = new Node(2);
 const three = new Node(3);
+const four = new Node(4);
 two.left = one;
 two.right = three;
+three.right = four;
 
-console.log(isValidBST(two));
+console.log(binaryTreePaths(two));
 
 
