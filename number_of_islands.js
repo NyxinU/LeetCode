@@ -17,14 +17,16 @@ const numberOfIslands = (grid) => {
         temp.push(island[i] - numCol);
         temp.push(island[i] + numCol);
         // console.log(temp)
-        temp.forEach(index => {
-          if (flatten[index] === 1 && !visited[index]) {
-            island.push(index);
-            visited[index] = true;
+
+        for (let index = 0; index < temp.length; index++) {
+          let element = temp[index];
+          if (flatten[element] === 1 && !visited[element]) {
+            island.push(element);
+            visited[element] = true;
           }
-        });
+          
+        }
       if (i === island.length - 1) {
-        console.log(island)
           counter++;
           island = [];
         }  
