@@ -1,32 +1,36 @@
 var longestPalindrome = function (s) {
-  let longest = s.length > 0 ? `${s[0]}` : "";
-  let pointer = 0;
+  let longest = s.length === 0 ? "" : s[0];
+  let p1 = 0;
 
-  while (pointer < s.length) {
-    console.log([pointer, longest])
-    let rP = pointer - 1;
-    let fP = pointer + 1;
 
-    if (s[rP] === s[fP] && fP - rP >= longest.length) {
-      longest = s.slice(rP, fP + 1);
+  while (p1 < s.length) {
+    let odd = palinFinder(s, p1 - 1, p1 + 1);
+    let even = palinFinder(s, p1, p1 + 1);
+    if (odd.length > longest.length) {
+      longest = odd;
     }
 
-    if(s[pointer] === s[fP]) {
-      fP++;
+    if (even.length > longest.length) {
+      longest = even;
     }
+    p1++;
+  }
+  return longest;
+};
 
-    while (s[rP] === s[fP] && s[rP] !== undefined && s[fP] !== undefined) {
-      rP--;
-      fP++;
-    }
+var palinFinder = (s, bp, fp) => {
+  let longest = s[bp] === s[fp] ? s.slice(bp, fp + 1) : "";
 
-    rP++;
-    fP--;
+  while (s[bp] === s[fp] && s[bp] !== undefined && s[fp] !== undefined) {
+    bp--;
+    fp++;
+  }
 
-    if (fP - rP >= longest.length) {
-      longest = s.slice(rP, fP + 1);
-    }
-    pointer++;
+  bp++;
+  fp--;
+
+  if (fp - bp > longest.length) {
+    longest = s.slice(bp, fp + 1);
   }
 
   return longest;
