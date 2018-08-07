@@ -1,13 +1,23 @@
-const lengthOfLongestSubstring = (s) => {
-  const maxLength = 0;
-  let temp = [];
-  const arrOfletters = s.split('');
+var lengthOfLongestSubstring = function (s) {
+  let longest = 0;
+  let map = {};
+  let arr = [];
 
-  let i = 0;
-  for (let j = (i + 1); j < arrOfletters.length; j++) {
-    if(temp.includes())
-  };
+  for (let i = 0; i < s.length; i++) {
+    let letter = s[i]
+    if (map[letter]) {
+      while (arr[0] !== letter) {
+        map[arr[0]] = false;
+        arr.shift();
+      }
+      arr.shift();
+      arr.push(letter);
 
-const isUniq = (s) => {
-
+    } else {
+      map[letter] = true;
+      arr.push(letter);
+      if (arr.length > longest) { longest = arr.length; }
+    }
+  }
+  return longest
 };
