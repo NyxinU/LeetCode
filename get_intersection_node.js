@@ -7,6 +7,8 @@ var getIntersectionNode = function (headA, headB) {
 
   while (firstPassA || firstPassB) {
     if (curA === curB) { return curA }
+    curA = curA.next
+    curB = curB.next
     if (curA === null) {
       curA = headB
       firstPassA = false
@@ -16,8 +18,6 @@ var getIntersectionNode = function (headA, headB) {
       curB = headA
       firstPassB = false
     }
-    curA = curA.next
-    curB = curB.next
   }
 
   while (curA !== null || curB !== null) {
@@ -25,5 +25,6 @@ var getIntersectionNode = function (headA, headB) {
     curA = curA.next
     curB = curB.next
   }
+  console.log([curA, curB])
   return null
 };
