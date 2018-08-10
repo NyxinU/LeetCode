@@ -1,25 +1,17 @@
 var oddEvenList = function (head) {
-  let oddList = head
-  let oddTail = null
-  let evenList = head.next
-  let evenHead = head.next
-  let cur = head.next.next;
-  let isOdd = true;
+  if (head === null) return head;
+  let oddTail = head
+  let evenTail = head.next
+  const evenHead = head.next
 
-  while (cur !== null) {
-    if (isOdd) {
-      oddList.next = cur
-      oddTail = cur
-      cur = cur.next
-      isOdd = false;
-    } else {
-      evenList.next = cur
-      cur = cur.next
-      isOdd = true;
-    }
+  while (evenTail !== null && evenTail.next !== null) {
+    oddTail.next = evenTail.next
+    evenTail.next = evenTail.next.next
+    oddTail.next.next = evenHead
+
+    oddTail = oddTail.next
+    evenTail = evenTail.next
   }
-  oddTail.next = evenHead
 
-  return oddList
+  return head
 };
-
