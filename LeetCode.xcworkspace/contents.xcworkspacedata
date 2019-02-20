@@ -11,6 +11,9 @@
       location = "group:Number of Islands .swift">
    </FileRef>
    <FileRef
+      location = "group:Swap Nodes in Pairs .swift">
+   </FileRef>
+   <FileRef
       location = "group:Reverse String.swift">
    </FileRef>
    <FileRef
