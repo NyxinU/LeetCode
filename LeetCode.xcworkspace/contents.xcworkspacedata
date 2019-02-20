@@ -8,6 +8,12 @@
       location = "group:Set Matrix Zeroes .swift">
    </FileRef>
    <FileRef
+      location = "group:Number of Islands .swift">
+   </FileRef>
+   <FileRef
+      location = "group:Reverse String.swift">
+   </FileRef>
+   <FileRef
       location = "group:Remove Duplicates from Sorted Array .swift">
    </FileRef>
 </Workspace>
