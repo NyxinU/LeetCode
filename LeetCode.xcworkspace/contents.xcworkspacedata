@@ -5,6 +5,9 @@
       location = "group:Longest Substring Without Repeating Characters .swift">
    </FileRef>
    <FileRef
+      location = "group:Pascal&apos;s Triangle.swift">
+   </FileRef>
+   <FileRef
       location = "group:3Sum.swift">
    </FileRef>
    <FileRef
